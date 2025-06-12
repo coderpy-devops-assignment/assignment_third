@@ -45,7 +45,7 @@ def signin_user():
 @app.route('/get_users', methods=['GET'])
 def user_list():
     response    = requests.get(f"{backend_url}/view_user")
-    return  response.json()
+    return render_template('user_view.html',users=response.json())
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0',port=8000,debug=True)
